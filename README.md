@@ -87,7 +87,7 @@ select your Alexa account and under Select: “Get-List-Items” and then select
 clone Git repository in the module directory and install
 
 Config.js:
-'''
+```
 config: {
             logging: false,
             useWildcards: true,
@@ -112,7 +112,7 @@ config: {
            },
 },
 
-'''
+```
 
 It takes a while for the entries to appear in MagicMirror, depending on the interval as it is set in Node-Red. For testing I set 5sek, 1min in normal operation.
 
