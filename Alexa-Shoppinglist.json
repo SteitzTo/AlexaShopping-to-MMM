@@ -1,0 +1,241 @@
+[
+    {
+        "id": "8273dbc837962bbc",
+        "type": "tab",
+        "label": "Magic Mirror",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "acbd4ebe03658394",
+        "type": "inject",
+        "z": "8273dbc837962bbc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "6b865c3ce3ceae0d"
+            ]
+        ]
+    },
+    {
+        "id": "5b6f7411e6e5deec",
+        "type": "mqtt out",
+        "z": "8273dbc837962bbc",
+        "name": "",
+        "topic": "Alexa/Torsten/Einkaufsliste",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a4a3cc56ed9dd522",
+        "x": 1220,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "07e678c8700e9e69",
+        "type": "function",
+        "z": "8273dbc837962bbc",
+        "name": "Array für Einkaufslisten Items",
+        "func": "let AlexaArray = msg.payload; // Array of the payload\nconst valuesArray = [];       //Array for filter\n\n// filter if Element = hooked on in list\nconst Filter1Array = AlexaArray.filter(element => {\n  return element.completed === false;\n  });\n  for (const element of Filter1Array) {\n\n}\n// extract content of Element  value in Array\nfor (let i = 0; i < Filter1Array.length; i++) {\n  if (typeof Filter1Array[i] === 'object' && Filter1Array[i].hasOwnProperty('value')) {\n     valuesArray.push(Filter1Array[i].value + (\"<br>\")); \n  }\n}\n// capitalized the first Letter\nconst capitalizedArray = valuesArray.map(word => {\n  return word.charAt(0).toUpperCase() + word.slice(1);\n});\n//format array to string\ncapitalizedArrayfertig = capitalizedArray.join(\"\");\n\nmsg.payload = capitalizedArrayfertig;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 4,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 140,
+        "wires": [
+            [
+                "546edc2bab903506"
+            ]
+        ]
+    },
+    {
+        "id": "2077c63723e18c33",
+        "type": "template",
+        "z": "8273dbc837962bbc",
+        "name": "If list empty",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n<p>\n    Die Liste ist leer<br>\n</p>",
+        "output": "str",
+        "x": 950,
+        "y": 100,
+        "wires": [
+            [
+                "5b6f7411e6e5deec"
+            ]
+        ]
+    },
+    {
+        "id": "546edc2bab903506",
+        "type": "switch",
+        "z": "8273dbc837962bbc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "2077c63723e18c33"
+            ],
+            [
+                "3302e0545ab1d458"
+            ]
+        ]
+    },
+    {
+        "id": "3302e0545ab1d458",
+        "type": "function",
+        "z": "8273dbc837962bbc",
+        "name": "html: order: left",
+        "func": "msg.payload = \"<style> p {text-align: left; margin-left: 20px;</style>\" + \"<p>\"+ msg.payload + \"</p>\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 180,
+        "wires": [
+            [
+                "5b6f7411e6e5deec",
+                "547ef835fad328b8"
+            ]
+        ]
+    },
+    {
+        "id": "6b865c3ce3ceae0d",
+        "type": "alexa-remote-list",
+        "z": "8273dbc837962bbc",
+        "name": "",
+        "account": "9f1a5d45c77b7b5e",
+        "config": {
+            "option": "getListItems",
+            "value": {
+                "list": {
+                    "type": "str",
+                    "value": "YW16bjEuYWNjb3VudC5BRVJLR1NETVE2VFpUQ1lBWVFTV0g3TE9HNU1BLVNIT1BQSU5HX0lURU0="
+                }
+            }
+        },
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "07e678c8700e9e69"
+            ]
+        ]
+    },
+    {
+        "id": "547ef835fad328b8",
+        "type": "debug",
+        "z": "8273dbc837962bbc",
+        "name": "debug 31",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9c0c831703c7af74",
+        "type": "comment",
+        "z": "8273dbc837962bbc",
+        "name": "Magic Mirror Alexa Einkaufsliste",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a4a3cc56ed9dd522",
+        "type": "mqtt-broker",
+        "name": "MQTT-Server",
+        "broker": "192.168.2.2",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9f1a5d45c77b7b5e",
+        "type": "alexa-remote-account",
+        "name": "Alexa Torsten",
+        "authMethod": "proxy",
+        "proxyOwnIp": "192.168.2.2",
+        "proxyPort": "3456",
+        "cookieFile": "/home/pi/alex-cookie-torsten.txt",
+        "refreshInterval": "3",
+        "alexaServiceHost": "layla.amazon.de",
+        "pushDispatchHost": "",
+        "amazonPage": "amazon.de",
+        "acceptLanguage": "de-DE",
+        "onKeywordInLanguage": "an",
+        "userAgent": "",
+        "usePushConnection": "on",
+        "autoInit": "on",
+        "autoQueryActivityOnTrigger": "off"
+    }
+]
