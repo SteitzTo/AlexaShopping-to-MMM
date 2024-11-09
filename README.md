@@ -8,22 +8,25 @@ Since I have been working a lot lately with homeautomation/NodeRed/MQTT, and hav
 
 # Dependencies / assumption:
 
-NodeRed
-Mosquitto as a MQTT-Broker
-Amazon account
-Alexa
+NodeRed<br>
+Mosquitto as a MQTT-Broker<br>
+Amazon account<br>
+Alexa<br>
 
 # The following pallete in NodeRed:
 
-Node-Red Contrib-Alexa-Remote2-Applestrudel
+Node-Red Contrib-Alexa-Remote2-Applestrudel<br>
 
 MQTT Node
 
 # For the MagicMirror:
 
-The MMM-MQTT Module
+The MMM-MQTT Module<br>
 
-NodeRed Flow:
+
+# For Node-Red 
+
+Download the AlexShopping_flow.json from above
 
 
 
