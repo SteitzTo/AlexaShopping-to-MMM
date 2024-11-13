@@ -10,7 +10,7 @@ Since I have been working a lot lately with homeautomation/NodeRed/MQTT, and hav
 
 ![Node Red](https://img.shields.io/badge/Node--Red-8F0000?style=flat&logo=nodered&logoColor=white)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NodeRed<br>
 ![Mosquitto](https://img.shields.io/badge/mosquitto-%233C5280.svg?style=flat&logo=eclipsemosquitto&logoColor=white)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Working Mosquitto as a MQTT-Broker<br>
-![[Amazon Badge](https://img.shields.io/badge/Amazon-F90?logo=amazon&logoColor=fff&style=flat) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amazon account<br>
+![Amazon Badge](https://img.shields.io/badge/Amazon-F90?logo=amazon&logoColor=fff&style=flat) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amazon account<br>
 ![Amazon Alexa](https://img.shields.io/badge/amazon%20alexa-52b5f7?style=flat&logo=amazon%20alexa&logoColor=white) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alexa<br>
 
 # The following nodes in NodeRed:
