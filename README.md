@@ -51,13 +51,13 @@ Name: e.g. Alexa1
 
 Auth method: proxy
 
-This IP: Address of the machine on the Node-Red runs e.g. localhost or 192.168.x.x
+This IP: Address of the machine where Node-Red runs e.g. localhost or 192.168.x.x
 
 Port: 3456
-If you want to integrate several Alexa instances, please different ports per instance, 
+If you want to integrate several Alexa instances, please use different ports per instance, 
 since all instances have to be authenticated independently and have to run on different ports.
 
-Filepath: Path and file name of the cookies:
+Filepath: Path and file name for the cookies:
 
 e.g. /home/pi/alexa_cookie1.txt
 
