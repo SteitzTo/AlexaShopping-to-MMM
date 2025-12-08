@@ -70,11 +70,11 @@ Set the settings for Amazon as from the list [here](https://flows.nodered.org/no
 
 Then add on the top and click on Deploy in Node-Red.
 
-Now open the browser on the machine where Node-Red is running and enter the browser line:
+Now open the browser on the Host where Node-Red is running and enter in the browser line:
 
 http://localhost:3456
 
-Important: The call must take place on the machine from Node-Red and not via the network on another computer, otherwise the Auth Cookie cannot be written.
+Important: The call must take place on the machine where Node-Red is running and not via the network on another computer, otherwise the Auth Cookie cannot be written.
 
 With several Alexa instances, it should be done exactly like this, since each instance requires its own auth cookie. Think of the changed port numbers at several authorities.
 
