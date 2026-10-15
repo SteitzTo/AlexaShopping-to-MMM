@@ -28,7 +28,7 @@ Since I have been working a lot lately with homeautomation/NodeRed/MQTT, and hav
 
 Download the AlexShopping_flow.json from above
 
-![Alexa_shoppinglist](https://github.com/user-attachments/assets/f957acfa-3ea5-4234-abe9-861f677411df)
+<img width="1005" height="213" alt="Zwischenablage_10-15-2026_04" src="https://github.com/user-attachments/assets/75815bca-f022-4e50-abd7-da628aece534" />
 
 
 
